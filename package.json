@@ -1,0 +1,30 @@
+{
+  "name": "school-project",
+  "version": "0.1.0",
+  "description": "",
+  "main": "main.js",
+  "license": "UNLICENSED",
+  "config": {
+    "watch": ".",
+    "app": "flashcard.js",
+    "bundle": "index.js"
+  },
+  "scripts": {
+    "exe": "./node_modules/.bin/electron main.js main.js",
+    "start": "npm run watch",
+    "clean": "cross-conf-env rimraf npm_package_config_bundle",
+    "build": "cross-conf-env browserify -s npm_package_name npm_package_config_app -o npm_package_config_bundle -p [tsify --target='es6'] -t [preprocessify --contextFile build/debug.json] --no-bundle-external --debug",
+    "buildjs": "cross-conf-env browserify flashcard.js -o index.js",
+    "buildpixi": "cross-conf-env browserify pixi-demo.js -o pixi-index.js"
+  },
+  "devDependencies": {
+    "cross-conf-env": "latest",
+    "rimraf": "latest",
+    "watch": "latest",
+    "watchify": "latest"
+  },
+  "dependencies": {
+    "console": "latest",
+    "readline":"latest"
+  }
+}
