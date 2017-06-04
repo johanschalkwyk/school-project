@@ -13,9 +13,7 @@
     "exe": "./node_modules/.bin/electron main.js main.js",
     "start": "npm run watch",
     "clean": "cross-conf-env rimraf npm_package_config_bundle",
-    "build": "cross-conf-env browserify -s npm_package_name npm_package_config_app -o npm_package_config_bundle -p [tsify --target='es6'] -t [preprocessify --contextFile build/debug.json] --no-bundle-external --debug",
-    "buildjs": "cross-conf-env browserify flashcard.js -o index.js",
-    "buildpixi": "cross-conf-env browserify pixi-demo.js -o pixi-index.js"
+    "build": "cross-conf-env browserify school-ui.js -o school.js"
   },
   "devDependencies": {
     "cross-conf-env": "latest",
@@ -25,6 +23,8 @@
   },
   "dependencies": {
     "console": "latest",
-    "readline":"latest"
+    "readline":"latest",
+    "jquery":"1.12.4",
+    "jquery-ui":"1.10.5"
   }
 }
