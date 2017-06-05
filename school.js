@@ -27485,9 +27485,9 @@ module.exports = {
 var $ = require('jquery');
 var jqui = require('jquery-ui');
 var console = require('console');
-var Student = require('./school-model').Student;
-var Class   = require('./school-model').Class;
-var Teacher = require('./school-model').Teacher;
+var Student = require('./school-lib').Student;
+var Class   = require('./school-lib').Class;
+var Teacher = require('./school-lib').Teacher;
 
 var pam = new Teacher("Pam", "Borowiec", "NYC-12345");
 var math = new Class("math", pam);
@@ -27577,4 +27577,4 @@ $(document).ready( function() {
   });
 } );
 
-},{"./school-model":10,"console":2,"jquery":5,"jquery-ui":4}]},{},[11]);
+},{"./school-lib":10,"console":2,"jquery":5,"jquery-ui":4}]},{},[11]);
