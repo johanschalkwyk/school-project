@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head> <!-- container for metadata -->
+<title>Learning CSS</title>
+<!-- selector { attributes } -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+p {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+}
+.base {
+    color: red;
+    text-align: center;
+    border-style: solid;
+    /* margin: 100px 100px 150px 80px */
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    /* padding: 50px 30px 50px 80px */
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
+/* id selector */
+#para1 {
+    text-align: center;
+    color: blue;
+    border-style: inset;
+    border-width: 5px;
+    text-transform: uppercase;
+}
+/* class selector on <p> elements */
+.right {
+    text-align: right;
+    color: black;
+}
+/* background image */
+body {
+  /* background-image: url("https://cdn.cliqueinc.com/posts/img/uploads/current/images/0/87/360/main.original.600x0c.jpg"); */
+}
+/* formatting tables */
+table {
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid black;
+}
+/* container (block) */
+div#icons {
+    height: 200px;
+    width: 50%;
+    border-style: solid;
+    border-width: 5px;
+}
+/* list elements styled as a navigation bar */
+/* remoe bullet (type none), change color with hover */
+ul#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+ul#navbar li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+/* Change the link color on hover */
+ul#navbar li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+/* create a dropdown menu similar to navbar, but hiding the content */
+.dropbtn { /* the button */
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    min-width: 160px;
+    border: none;
+    cursor: pointer;
+}
+.dropdown {
+    position: relative;
+    display: inline-block; /* element is formatted inline */
+}
+.dropdown-content {
+    display: none;
+    position: absolute; /* will cause dropdown to overlap with rest of page */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1; /* stack order relative to other elements */
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+/* hover to get a pop up tool tip */
+.tooltip {
+    position: relative;
+    display: inline-block; /* inline acts like span */
+    border-bottom: 1px dotted black;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+/* animations */
+@keyframes example {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+}
+/* image gallery (hover) */
+div.gallery {
+    margin: 5px;
+    border: 2px solid #ccc;
+    float: left;
+    width: 180px;
+    opacity: 0.5;
+    transition: opacity 1s;
+    /* resize by user */
+    resize: horizontal;
+    overflow: auto;
+}
+div.gallery:hover {
+    border: 2px solid #777;
+    opacity: 1.0;
+}
+div.gallery img {
+    width: 100%;
+    border-radius: 50%;
+    height: auto;
+}
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+/* styling buttons */
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button1 {border-radius: 2px;}
+.button2 {border-radius: 4px;}
+.button3 {border-radius: 8px;}
+.button4 {border-radius: 12px;}
+.button5 {border-radius: 50%;}
+
+</style>
+</head>
+<body>
+
+<ul id="navbar">
+  <li><a href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+<hr>
+
+<div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+<hr>
+<button class="button button1">2px</button>
+<button class="button button2">4px</button>
+<button class="button button3">8px</button>
+<button class="button button4">12px</button>
+<button class="button button5">50%</button>
+
+<p>Move the mouse over the text below:</p>
+<div class="tooltip">Hover over me
+  <span class="tooltiptext">Tooltip text</span>
+</div>
+<hr>
+<div class="gallery">
+  <a target="_blank" href="fjords.jpg">
+    <img src="https://www.w3schools.com/css/img_fjords.jpg" alt="Fjords" width="300" height="200">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="forest.jpg">
+    <img src="https://www.w3schools.com/css/img_forest.jpg" alt="Forest" width="300" height="200">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="lights.jpg">
+    <img src="https://www.w3schools.com/css/img_lights.jpg" alt="Northern Lights" width="300" height="200">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="mountains.jpg">
+    <img src="https://www.w3schools.com/css/img_mountains.jpg" alt="Mountains" width="300" height="200">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+<br>
+<hr>
+
+<p> This is the end </p>
+
+
+</body>
+
+</html>

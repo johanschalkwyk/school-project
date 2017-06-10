@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Tooltip - Default functionality</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+$(document).ready(function() {
+  $( document ).tooltip();  /* tooltip pops up "title" attribute of element */
+ $( "#accordion" ).accordion();
+
+  var availableTags = [
+    "ActionScript",
+    "AppleScript",
+    "Asp",
+    "BASIC",
+    "C",
+    "C++",
+    "Clojure",
+    "COBOL",
+    "ColdFusion",
+    "Erlang",
+    "Fortran",
+    "Groovy",
+    "Haskell",
+    "Java",
+    "JavaScript",
+    "Lisp",
+    "Perl",
+    "PHP",
+    "Python",
+    "Ruby",
+    "Scala",
+    "Scheme"
+  ];
+
+   $( "#tags" ).autocomplete({
+     source: availableTags
+   });
+
+   $( "input.controlgroup").checkboxradio();
+   $( "fieldset" ).controlgroup();
+   $( "#datepicker" ).datepicker();
+   $( "#menu" ).menu();
+   $( "#progressbar" ).progressbar({
+     value: 37
+   });
+   $( "#slider" ).slider();
+});
+  </script>
+  <style>
+  .ui-menu { width: 150px; }
+  #progressbar { border: solid; }
+  </style>
+</head>
+<body>
+
+<div id="accordion">
+  <h3>Tooltip on link</h3>
+  <div class="ui-widget">
+    <p><a href="#" title="A tooltip for a link">Tooltips:</a>
+  </div>
+  <h3>Tooltip on input field</h3>
+  <div class="ui-widget">
+     <input id="age" title="A tooltip for an input field."></input>
+  </div>
+
+  <h3>Autocomplete</h3>
+    <div class="ui-widget">
+      <label for="tags">Tags: </label>
+      <input id="tags">
+    </div>
+
+  <h3>RadioButton</h3>
+    <div class="ui-widget">
+      <fieldset>
+         <legend>Select a Location: </legend>
+
+         <label for="radio-1">NYC</label>
+         <input type="radio" name="radio-x" id="radio-1" class="controlgroup">
+
+         <label for="radio-2">Paris</label>
+         <input type="radio" name="radio-x" id="radio-2" class="controlgroup">
+
+         <label for="radio-3">London</label>
+         <input type="radio" name="radio-x" id="radio-3" class="controlgroup">
+       </fieldset>
+    </div>
+
+   <h3>DatePicker</h3>
+   <div class="ui-widget">
+     <p>Date: <input type="text" id="datepicker"></p>
+   </div>
+
+   <h3>ProgressBar</h3>
+   <div class="ui-widget">
+     <div id="progressbar"></div>
+  </div>
+
+  <h3>Slider</h3>
+  <div class="ui-widget">
+    <div id="slider"></div>
+  </div>
+ </div>
+
+  <h3>Menu</h3>
+  <div class="ui-widget">
+     <ul id="menu">
+       <li class="ui-state-disabled"><div>Toys (n/a)</div></li>
+       <li><div>Books</div></li>
+       <li><div>Clothing</div></li>
+       <li><div>Electronics</div>
+         <ul>
+           <li class="ui-state-disabled"><div>Home Entertainment</div></li>
+           <li><div>Car Hifi</div></li>
+           <li><div>Utilities</div></li>
+         </ul>
+       </li>
+       <li><div>Movies</div></li>
+       <li><div>Music</div>
+         <ul>
+           <li><div>Rock</div>
+             <ul>
+               <li><div>Alternative</div></li>
+               <li><div>Classic</div></li>
+             </ul>
+           </li>
+           <li><div>Jazz</div>
+             <ul>
+               <li><div>Freejazz</div></li>
+               <li><div>Big Band</div></li>
+               <li><div>Modern</div></li>
+             </ul>
+           </li>
+           <li><div>Pop</div></li>
+         </ul>
+       </li>
+       <li class="ui-state-disabled"><div>Specials (n/a)</div></li>
+     </ul>
+   </div>
