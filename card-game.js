@@ -4,6 +4,7 @@ class Card {
   constructor(suite, value) {
     this.suite = suite;
     this.value = value;
+    this.img = "img/" + value + "_of_" + suite + ".png";
   }
 };
 
@@ -16,20 +17,20 @@ class Deck {
     var i;
     for (i=0; i < 13; i++) {
       var value = i.toString();
-      if (i == 0) { value ="Ace"; }
-      else if (i == 10) { value = "Jack"; }
-      else if (i == 11) { value = "Queen"; }
-      else if (i == 12) { value = "King"; }
+      if (i == 0) { value ="ace"; }
+      else if (i == 10) { value = "jack"; }
+      else if (i == 11) { value = "queen"; }
+      else if (i == 12) { value = "king"; }
       this.deck.push(new Card(suite, value));
     }
   }
 
   constructor() {
     this.deck = [];
-    this.createSuite("Hearts");
-    this.createSuite("Clubs");
-    this.createSuite("Spades");
-    this.createSuite("Diamonds");
+    this.createSuite("hearts");
+    this.createSuite("clubs");
+    this.createSuite("spades");
+    this.createSuite("diamonds");
   }
 
   shuffle() {
@@ -50,6 +51,7 @@ class Deck {
     for (i = 0; i < numCards && this.deck.length > 0; i++) {
       hand.push(this.deck.pop());
     }
+    console.log("deck size: " + this.deck.length);
     return hand;
   }
 }
@@ -57,5 +59,12 @@ class Deck {
 var deck = new Deck();
 deck.shuffle();
 
+deck.deal(7);
+deck.deal(7);
+deck.deal(7);
+deck.deal(7);
+deck.deal(7);
+deck.deal(7);
+deck.deal(7);
 var hand = deck.deal(7);
 console.log(hand);
