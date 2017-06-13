@@ -1,58 +1,45 @@
 'use strict';
 
 var console = require('console');
-var readline = require('readline');
 
 function print(printVar) {
     console.log(printVar);
 }
-var rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-    terminal: false
-});
 
 class Card {
     constructor(number, suit){
         this.number = number;
         this.suit = suit;
-        if (number = 1) {
+        if (this.number == 1) {
             this.number = "ace";
         }
-        else if (number = 11) {
+        else if (this.number == 11) {
             this.number = "jack";
         }
-        else if (number = 12) {
+        else if (this.number == 12) {
             this.number = "queen";
         }
-        else {
+        else if (this.number == 13) {
             this.number = "king";
         }
-    }
-}
-
-class cardGroup {
-    constructor(){
-        this.group = [];
-    }
-    addCard(card){
-        this.group.push(card);
+        else {
+            return "error";
+        }
     }
 }
 
 class Deck{
     constructor(){
         this.cards = [];
-        this.count = this.cards.length;
-        for (var i = 1; i <= 4, i ++){
+        for (var i = 1; i <= 4; i++){
             for (var a = 1; a <= 13; a++){
-                if (i === 1){
+                if (i == 1){
                     this.cards.push(new Card(a, "spade"));
                 }
-                else if (i === 2) {
+                else if (i == 2) {
                     this.cards.push(new Card(a, "diamond"));
                 }
-                else if (i === 3) {
+                else if (i == 3) {
                     this.cards.push(new Card(a, "clover"));
                 }
                 else {
@@ -60,36 +47,34 @@ class Deck{
                 }
             }
         }
+     //   this.cards.push(0);
+        this.count = this.cards.length;
     }
+
     shuffle(){
         var shuffled = [];
-        while (shuffled.length < 52) {
-            var number = (Math.floor(Math.random() * 51 )+ 1);
+        while (shuffled.length < 51) {
+            var number = (Math.floor(Math.random() * 51 +1 ));
             if (this.cards[number] === 0) {
+               // print(number);
                 continue;
             }
             else {
                 shuffled.push(this.cards[number]);
                 this.cards[number]= 0;
             }
+            print(shuffled.length);
         }
+        print("length: " + shuffled.length);
         this.cards = shuffled;
         this.cards.count = this.cards.length;
     }
+
     deal(player){
         for (var i = 0; i <=6; i++) {
             player.cards.push(this.cards.pop());
         }
         this.cards.count=this.cards.length;
-    }
-    newCard(player){
-
-    }
-}
-
-class Group {
-    constructor(){
-        this.cards = [];
     }
 }
 
@@ -112,7 +97,7 @@ class Player {
         }
     }
     addToGroup(card, groupName) {
-        if (groupName.cards[0].number === card.number) {
+        if (groupName.cards[0].number = card.number) {
             groupName.cards.push(card);
         }
         else {
@@ -120,29 +105,11 @@ class Player {
         }
     }
 }
-/*
-class Game {
-    constructor(deck){
-        this.cards = deck.cards;
-        this.players = [];
-    }
 
-    dealCards(players, deck){
-        for (var i = 0; i <= this.players.length; i++ ){
-            this.player[i]
-        }
-        deck.count = deck.count - 1;
-    }
-
-    playGame(){
-        while (deck.count>0){
-            for (var i = 0; i <= this.players.length; i++ ){
-                this.player[i].move();
-
-            }
-        }
-    }
-}
-*/
-
-
+var deck = new Deck();
+print(deck);
+deck.shuffle();
+print(deck);
+var player1 = new Player();
+deck.deal(player1);
+player1.showCards();
