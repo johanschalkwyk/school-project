@@ -13,7 +13,8 @@
     "exe": "./node_modules/.bin/electron main.js main.js",
     "start": "npm run watch",
     "clean": "cross-conf-env rimraf npm_package_config_bundle",
-    "build": "cross-conf-env browserify school-ui.js -o school.js"
+    "build": "cross-conf-env browserify school-ui.js -o school.js",
+    "buildgame": "cross-conf-env browserify card-game.js -o game.js"
   },
   "devDependencies": {
     "cross-conf-env": "latest",

@@ -1,3 +1,5 @@
+var $       = require('jquery');
+var jqui    = require('jquery-ui');
 var console = require('console');
 
 class Card {
@@ -15,9 +17,9 @@ function getRndInteger(min, max) {
 class Deck {
   createSuite(suite) {
     var i;
-    for (i=0; i < 13; i++) {
+    for (i=1; i < 13; i++) {
       var value = i.toString();
-      if (i == 0) { value ="ace"; }
+      if (i == 1) { value ="ace"; }
       else if (i == 10) { value = "jack"; }
       else if (i == 11) { value = "queen"; }
       else if (i == 12) { value = "king"; }
@@ -58,13 +60,16 @@ class Deck {
 
 var deck = new Deck();
 deck.shuffle();
-
-deck.deal(7);
-deck.deal(7);
-deck.deal(7);
-deck.deal(7);
-deck.deal(7);
-deck.deal(7);
-deck.deal(7);
 var hand = deck.deal(7);
 console.log(hand);
+
+$(document).ready(function() {
+  var i;
+  for (i=0; i < hand.length; i++) {
+    var html = "<li class=\"ui-widget-content ui-corner-tr\">" +
+      "<img src=\"" + hand[i].img + "\" width=\"72\" height=\"96\"></img>" +
+      "</li>";
+    console.log(html);
+    $("#gallery").append(html);
+  }
+});
