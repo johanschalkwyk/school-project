@@ -17,12 +17,12 @@ function getRndInteger(min, max) {
 class Deck {
   createSuite(suite) {
     var i;
-    for (i=1; i < 13; i++) {
+    for (i=1; i <= 13; i++) {
       var value = i.toString();
       if (i == 1) { value ="ace"; }
-      else if (i == 10) { value = "jack"; }
-      else if (i == 11) { value = "queen"; }
-      else if (i == 12) { value = "king"; }
+      else if (i == 11) { value = "jack"; }
+      else if (i == 12) { value = "queen"; }
+      else if (i == 13) { value = "king"; }
       this.deck.push(new Card(suite, value));
     }
   }
@@ -37,7 +37,8 @@ class Deck {
 
   shuffle() {
     var i;
-    for (i = 0; i < 100; i++) {
+    console.log(this.deck.length);
+    for (i = 0; i < 200; i++) {
       var pos1 = getRndInteger(0, 51);
       var pos2 = getRndInteger(0, 51);
       var val1 = this.deck[pos1];
@@ -60,6 +61,7 @@ class Deck {
 
 var deck = new Deck();
 deck.shuffle();
+deck.deal(1);
 var hand = deck.deal(7);
 console.log(hand);
 
@@ -67,7 +69,7 @@ $(document).ready(function() {
   var i;
   for (i=0; i < hand.length; i++) {
     var html = "<li class=\"ui-widget-content ui-corner-tr\">" +
-      "<img src=\"" + hand[i].img + "\" width=\"72\" height=\"96\"></img>" +
+      "<img src=\"" + hand[i].img + "\" width=\"72px\" height=\"96px\"></img>" +
       "</li>";
     console.log(html);
     $("#gallery").append(html);
