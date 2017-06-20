@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Go Fish</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+body {
+background-image: url("img/CardTable.jpg");
+}
+#title {
+text-align: center;
+}
+#hand {
+border: 1px dotted black;
+width: 90%;
+height: 250px;
+}
+#menu {
+width: 10%;
+padding: 10px;
+height: 190px;
+float: left;
+}
+.button {
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 5px;
+width: 100%;
+}
+/* Playing card divs */
+.card {
+cursor: pointer;
+float: left;
+width: 72px;
+height: 96px;
+margin: 10px;
+}
+.cardimage {
+width: 72px;
+height: 96px;
+}
+/* Div for dropping cards into a group */
+.groupbox {
+border: 1px solid black;
+width: 100px;
+height: 120px;
+margin: 20px;
+text-align: center;
+float: left
+}
+</style>
+</head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+    $( "#hand div.card" ).draggable();
+    $( "#cardgroups div.groupbox" ).droppable({
+      accept: "#hand div.card",
+      classes: {
+        "ui-droppable-active": "ui-state-active",
+        "ui-droppable-hover": "ui-state-hover"
+      },
+      drop: function( event, ui ) {
+        $( this ).addClass( "ui-state-highlight" )
+        console.log("drop box name: " + $(this).attr("name"));
+        console.log("card name    : " + ui.draggable.attr("name"));
+     }
+   });
+} );
+</script>
+<body>
+
+<h1 id="title">Go Fish</h1>
+
+<div>
+<div id="menu">
+<button class="button">New Game</button>
+<button class="button">Go Fish</button>
+</div>
+
+<div id="hand">
+  <div name="ace_of_spades" class="card ui-widget"><img class="cardimage" src="img/ace_of_spades.png"></div>
+  <div name="2_of_spades" class="card ui-widget"><img class="cardimage" src="img/2_of_spades.png"></div>
+  <div name="3_of_spades" class="card ui-widget"><img class="cardimage" src="img/3_of_spades.png"></div>
+  <div name="queen_of_spades" class="card ui-widget"><img class="cardimage" src="img/queen_of_spades.png"></div>
+</div>
+
+<div id="cardgroups">
+  <div id="cardgroup-0", name="0" class="groupbox ui-widget"><p>+</p></div>
+  <div id="cardgroup-1", name="1" class="groupbox ui-widget"><p>+</p></div>
+  <div id="cardgroup-2", name="2" class="groupbox ui-widget"><p>+</p></div>
+</div>
+
+</body>
+</html>

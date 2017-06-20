@@ -8,6 +8,9 @@ class Card {
     this.value = value;
     this.img = "img/" + value + "_of_" + suite + ".png";
   }
+  getValue() {
+    return this.value + "_of_" + this.suite;
+  }
 };
 
 function getRndInteger(min, max) {
@@ -59,22 +62,34 @@ class Deck {
   }
 }
 
-var deck = new Deck();
-deck.shuffle();
-deck.deal(1);
-var hand = deck.deal(7);
-console.log(hand);
+class Model {
+  constructor() {
+    this.deck = new Deck();
+    this.deck.deal(1);
+  }
 
-$(document).ready(function() {
-  var gallery   = $("#gallery");
-  var cardgroup = $("#cardgroup");
+  deal() {
+    this.hand = deck.deal(7);
+    console.log(this.hand);
+  }
+}
+
+class View {
+  constructor(model) {
+    this.model = model;
+    this.gallery = $("#gallery");
+    this.cardgroup = $("#cardgroup");
+    showHand();
+  }
+
+  showHand() {
 
   // Add cards to the gallery
   var i;
   for (i=0; i < hand.length; i++) {
     var html = "<li class=\"ui-widget-content ui-corner-tr\">" +
-      "<img src=\"" + hand[i].img + "\" width=\"72px\" height=\"96px\"></img>" +
-      "</li>";
+	"<img name=\"" + i.toString() + "\" src=\"" + hand[i].img +
+	"\" width=\"72px\" height=\"96px\"></img>" + "</li>";
     console.log(html);
     gallery.append(html);
   }
@@ -96,7 +111,7 @@ $(document).ready(function() {
       "ui-droppable-active": "ui-state-highlight"
     },
     drop: function( event, ui ) {
-      deleteImage( ui.draggable );
+      moveCard( ui.draggable );
     }
   });
 
@@ -107,12 +122,14 @@ $(document).ready(function() {
       "ui-droppable-active": "custom-state-active"
     },
     drop: function( event, ui ) {
-      recycleImage( ui.draggable );
+      revertCard( ui.draggable );
     }
   });
 
-  // Image deletion function
-  function deleteImage( item ) {
+  function moveCard( item ) {
+    var name = item.find("img").attr("name");
+    console.log("card: " + hand[parseInt(name)].getValue());
+
     item.fadeOut(function() {
       var list = $( "ul", cardgroup ).length ?
           $( "ul", cardgroup ) :
@@ -124,8 +141,7 @@ $(document).ready(function() {
     });
   }
 
-  // Image recycle function
-  function recycleImage( item ) {
+  function revertCard( item ) {
     item.fadeOut(function() {
       item
           .find( "img" )
