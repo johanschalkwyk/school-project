@@ -106,7 +106,6 @@ class View {
     for (i=0; i < hand.length; i++) {
       this.addCard(hand[i]);
     }
-    sleep(10);
   }
 
   updateDraggable() {
