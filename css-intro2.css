@@ -1,0 +1,106 @@
+h1 {
+    color: darkslateblue;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+    background-color: lightskyblue;
+}
+
+body {
+    background-color: #eeeeee;
+    font-family: "Arial";
+    text-align: left;
+}
+
+body.format1{
+    background-color: transparent;
+    font-family: "Times New Roman";
+    text-align: left;
+}
+
+h1.format1{
+    border-style: groove;
+    border-color: black;
+    border-width: 5px;
+    border-radius: 15px;
+}
+
+h1.format2a{
+    color: lightskyblue;
+    background-color: darkblue;
+    border-style: ridge;
+    border-color: lightskyblue;
+    font-size: 500%;
+}
+
+h1.format2b{
+    color: lightskyblue;
+    background-color: darkblue;
+    font-size: 300%;
+    border: ridge lightskyblue;
+}
+
+h1.format3a{
+    color: deeppink;
+    background-color: lightpink;
+    border-color: deeppink;
+    border-style: dotted solid;
+}
+
+h1.format3b{
+    color: deeppink;
+    background-color: lightpink;
+    border-color: deeppink;
+    border-style: dotted solid double;
+}
+
+h1.format4{
+    color: black;
+    background-color: lightgray;
+    border-left: orangered 5px solid;
+}
+h2.format1{
+    color: maroon;
+    background-color: transparent;
+    font-family: "Times New Roman";
+    font-size: 200%;
+}
+
+div.format1{
+    margin: 40px;
+}
+
+p.format1{
+    color: black;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 5px 0;
+    border-color: darkblue;
+    margin: 20px;
+    padding: 20px
+}
+p.format1a{
+    color: black;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 5px 0;
+    border-color: darkblue;
+    margin: 20px 100px;
+    padding: 20px;
+}
+p.format1b{
+    color: black;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 5px 0;
+    border-color: darkblue;
+    margin: 20px;
+    padding: 20px 100px;
+}
+p.format2{
+    color: black;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 5px 0;
+    margin: 20px 0;
+    padding: 20px 0;
+}
