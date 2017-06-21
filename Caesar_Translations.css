@@ -1,0 +1,62 @@
+h1.format1{
+    color: lightskyblue;
+    background-color: darkblue;
+    font-size: 300%;
+    border: ridge lightskyblue;
+    text-align: center;
+}
+h1.format2{
+    color: lightskyblue;
+    background-color: darkblue;
+    font-size: 300%;
+    border: ridge lightskyblue;
+    text-align: center;
+    max-width: 1000px;
+    outline: double 10px gold;
+}
+h1.format3a{
+    color: lightskyblue;
+    background-color: darkblue;
+    font-size: 300%;
+    border: ridge lightskyblue;
+    text-align: center;
+    letter-spacing: 5px;
+    line-height: 100px;
+}
+h1.format3b{
+    color: lightskyblue;
+    background-color: darkblue;
+    font-size: 300%;
+    border: ridge lightskyblue;
+    text-align: center;
+    letter-spacing: -5px;
+    line-height: 0.5;
+}
+h1.format4{
+    color: lightskyblue;
+    font-size: 300%;
+    text-shadow: 3px 2px darkblue;
+    text-align: center;
+}
+
+h2.format1{
+    color: maroon;
+    background-color: transparent;
+    font-family: "Times New Roman";
+    font-size: 200%;
+    margin: 20px 0;
+}
+
+div.format1{
+    margin: 0 60px;
+    max-width: 1000px;
+}
+
+p.format1{
+    color: black;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 5px 0;
+    margin: 20px 0;
+    padding: 20px 0;
+}
