@@ -29,21 +29,33 @@ class View {
   }
 
   updateDraggable() {
-    $( "#hand div.card" ).draggable();
+    $( "#hand div.card" ).draggable({ revert: true });
   }
 
   updateDroppable() {
     $( "#cardgroups div.groupbox" ).droppable({
       accept: "#hand div.card",
       classes: {
-        "ui-droppable-active": "ui-state-active",
-        "ui-droppable-hover": "ui-state-hover"
+	  "ui-droppable-active": "ui-state-active",
+	  "ui-droppable-hover": "ui-state-hover"
       },
       drop: function( event, ui ) {
-        // $( this ).addClass( "ui-state-highlight" )
-        console.log("drop box name: " + $(this).attr("name"));
-        console.log("card name    : " + ui.draggable.attr("name"));
-     }
+          var cardId   = ui.draggable.attr("name");
+	  var groupId  = $(this).attr("name");
+	  
+	  var added = model.addCardToGroup(cardId, groupId);
+	  console.log("added card: " + added);
+	  if (added === true) {
+	    ui.draggable.
+	      clone(true).
+	      css('position', 'inherit').
+	      appendTo($(this));
+	    ui.draggable.remove();
+
+	    console.log("drop box name: " + cardId);
+	    console.log("card name    : " + groupId);
+	  }
+      }
    });
   }
 }

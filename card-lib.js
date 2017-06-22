@@ -6,7 +6,7 @@ class Card {
     this.img = "img/" + name + "_of_" + suite + ".png";
   }
   getValue() {
-    return this.value + "_of_" + this.name;
+    return this.name + "_of_" + this.suite;
   }
 };
 
@@ -61,12 +61,12 @@ class Deck {
   createSuite(suite) {
     var i;
     for (i=1; i <= 13; i++) {
-      var value = i.toString();
-      if (i == 1) { value ="ace"; }
-      else if (i == 11) { value = "jack"; }
-      else if (i == 12) { value = "queen"; }
-      else if (i == 13) { value = "king"; }
-      this.deck.push(new Card(suite, value, i));
+      var name = i.toString();
+      if (i == 1) { name ="ace"; }
+      else if (i == 11) { name = "jack"; }
+      else if (i == 12) { name = "queen"; }
+      else if (i == 13) { name = "king"; }
+      this.deck.push(new Card(suite, name, i));
     }
   }
 
@@ -107,20 +107,38 @@ class Model {
     this.deck = new Deck();
     this.deck.shuffle();
     this.deck.deal(1);
+    this.groups = {};
+    this.cards  = {};
+    this.hand   = [];
   }
 
   deal() {
     this.hand = this.deck.deal(7);
+    var i;
+    for (i=0; i < this.hand.length; i++) {
+      this.cards[this.hand[i].getValue()] = this.hand[i];
+    }
     console.log(this.hand);
   }
 
   gofish() {
     var card = this.deck.deal(1);
-    this.hand.push(card);
+    console.log("go fish: " + card[0].getValue());
+    this.cards[card[0].getValue()] = card[0];
+    this.hand.push(card[0]);
     return card[0];
   }
 
   getHand() { return this.hand; }
+
+  addCardToGroup(cardId, groupId) {
+    if (this.groups[groupId] === undefined) {
+      this.groups[groupId] = new CardGroup();
+    }
+    var group = this.groups[groupId];
+    var card  = this.cards[cardId];
+    return group.addCard(card);
+  }
 }
 
 module.exports = { Model, Deck, Card, CardGroup};
