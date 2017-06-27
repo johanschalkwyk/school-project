@@ -153,14 +153,20 @@ class Game {
     }
 
     turn(input, player){
-        if (input ===1) {
-            rl.question("Group Number >", (group) => player[0].groups[group - 1].addCard(group));
+        print(player.name);
+        print(player.cards);
+        if (input === "1") {
+            rl.question("Group Number >", (group) => player.groups[group - 1].addCard(group));
+            rl.question("1. Add to a group 2. New group 3. Take a card 4. ", (input) => this.turn(input, this.players[0]));
         }
-        else if (input === 2){
-            rl.question("Group Number >", (name) => player[0].groups.push(new Group(name)));
+        else if (input === "2"){
+            rl.question("Group Number >", (name) => player.groups.push(new Group(name)));
+
+            rl.question("1. Add to a group 2. New group 3. Take a card 4. ", (input2) => this.turn(input2, this.players[0]));
         }
-        else if (input === 3) {
+        else if (input === "3") {
             player.cards.push(deck.cards.pop());
+            player.showCards();
         }
         else {
             print("This is an invalid input");
@@ -169,11 +175,10 @@ class Game {
 
     playGame(){
 
-        var input = 0;
-        rl.question("1. Add to a group 2. New group 3. Take a card 4. ", (input) => print(input));
-        print(input);
-        this.turn(input, this.players[0]);
-/*
+        print(this.players[0].cards);
+        rl.question("1. Add to a group 2. New group 3. Take a card 4. ", (input) => this.turn(input, this.players[0]));
+
+        /*
         while (deck.count>0){
             for (var i = 0; i <= this.players.length; i++ ){
                 var turn = this.players[i];//turn is whose turn it is
@@ -194,6 +199,7 @@ var deck = new Deck();
 print(deck);
 deck.shuffle();
 print(deck);
+var player = new Player("Julianna")
 
 
 var game = new Game(3, deck);
