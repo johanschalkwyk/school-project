@@ -10,6 +10,10 @@ body {
     font-family: "Arial";
     text-align: left;
 }
+div.format2{
+    border: solid 2px black;
+    height: 100px;
+}
 
 body.format1{
     background-color: transparent;
@@ -103,4 +107,47 @@ p.format2{
     border-width: 5px 0;
     margin: 20px 0;
     padding: 20px 0;
+}
+p.italic{
+    font-style: italic;
+}
+p.oblique{
+    font-style: oblique;
+}
+p.bold{
+    font-weight: bold;
+}
+a:link{
+    color: blue;
+    text-decoration: none;
+}
+a:visited{
+    color: lightblue;
+    text-decoration: none;
+}
+a:active{
+    color: cyan;
+    text-decoration: none;
+}
+a:hover{
+    color: darkblue;
+    text-decoration: none;
+}
+div.floatLeft{
+    float: left;
+    margin: 10px;
+    border: solid 3px black;
+    padding: 5px;
+}
+div.floatRight{
+    float: right;
+    margin: 10px;
+    border: solid 3px black;
+    padding: 5px;
+}
+div.leftClear{
+    clear: left;
+    margin: 10px;
+    border: solid 3px black;
+    padding: 5px;
 }
