@@ -5,6 +5,15 @@ h1.format1{
     border: ridge lightskyblue;
     text-align: center;
 }
+h1.format1a{
+    color: lightskyblue;
+    background-color: darkblue;
+    font-size: 300%;
+    border: ridge lightskyblue;
+    text-align: center;
+    width: 750px;
+    margin:auto;
+}
 h1.format2{
     color: lightskyblue;
     background-color: darkblue;
@@ -59,4 +68,73 @@ p.format1{
     border-width: 5px 0;
     margin: 20px 0;
     padding: 20px 0;
+}
+p.visible{
+    color: black;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 5px 0;
+    margin: 20px 0;
+    padding: 20px 0;
+    max-width: 500px;
+    height: 100px;
+    overflow: visible
+}
+p.hidden{
+    color: black;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 5px 0;
+    margin: 20px 0;
+    padding: 20px 0;
+    max-width: 500px;
+    height: 100px;
+    overflow: hidden;
+}
+p.scroll{
+    color: black;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 5px 0;
+    margin: 20px 0;
+    padding: 20px 0;
+    max-width: 500px;
+    height: 100px;
+    overflow: scroll;
+}
+p.auto{
+    color: black;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 5px 0;
+    margin: 20px 0;
+    padding: 10px 0;
+    height: 100px;
+    overflow: auto;
+}
+ul.a{
+    list-style: disc;
+}
+ol.a{
+    list-style: lower-alpha;
+}
+table, th, td{
+    border: solid black 3px;
+    padding: 5px;
+}
+table{
+    border-collapse: collapse;
+    width: 500px
+}
+th{
+    background-color: lightcyan;
+    text-weight: bold;
+    height: 30px;
+    text-align: center;
+}
+td{
+    text-align: left;
+}
+table.a{
+    border-bottom: 2px solid black;
 }
