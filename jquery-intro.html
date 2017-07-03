@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h1{
+            text-align: center;
+        }
+        p.hide-p{
+            color: black;
+        }
+        p.hide{
+            color: black;
+        }
+        p.hide-slow{
+            color: black;
+        }
+        p.hide-button{
+            color: black;
+        }
+        button.a {
+            color: green;
+        }
+        button.b{
+            color: black;
+        }
+        button.fadeIn{
+
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".hide-p").click(function(){
+                $("p").hide();
+            });
+        });
+
+        $(document).ready(function(){
+            $(".hide").click(function(){
+                $(".hide").hide();
+            });
+        });
+
+        $(document).ready(function(){
+            $(".hide-slow").click(function(){
+                $(".hide-slow").hide(3000);
+            });
+        });
+
+        $(document).ready(function(){
+            $("button.b").click(function(){
+                $(".hide-button").toggle();
+            });
+        });
+
+        $(document).ready(function(){
+            $("button.a").click(function(){
+                $("h2").fadeOut(2000);
+                $("h3").fadeOut(2000);
+            })
+        })
+
+        $(document).ready(function(){
+            $("button.c").click(function(){
+                $("p").fadeIn(2000);
+            })
+        })
+    </script>
+</head>
+<body>
+<h1>This is my intro to JQuery</h1>
+<p>This is a regular paragraph</p>
+<p class="hide-p">This is a paragraph. When you click it, it hides other paragraphs</p>
+<p class="hide">This is another paragraph. When you click it, it only hides itself</p>
+<p class="hide-slow">This paragraph hides itself over three seconds</p>
+<p class="hide-button">This paragraph hides and shows when the button below is clicked</p>
+<button class="b">Click me</button>
+<button class="c">This button fades in hidden paragraphs</button>
+<p>Click the button below to fade things out</p>
+<button class="a">Click me</button>
+<h2>This is a heading</h2>
+<h3>This is a smaller heading</h3>
+</body>
+</html>
