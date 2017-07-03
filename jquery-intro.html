@@ -23,8 +23,25 @@
         button.b{
             color: black;
         }
-        button.fadeIn{
+        button.animate{}
+        div.a{
+            background-color: magenta;
+            width: 500px;
+            height: 500px;
+            display: none;
+        }
+        div.b{
+            outline: black 2px solid;
+            width: 500px;
 
+        }
+        div.animate{
+            background:lightblue;
+            color: black;
+            font-size: 100%;
+            width: 500px;
+            position: relative;
+            height: 1000px;
         }
     </style>
 
@@ -66,6 +83,25 @@
                 $("p").fadeIn(2000);
             })
         })
+
+        $(document).ready(function(){
+            $("div.b").click(function(){
+                $("div.a").slideToggle(2000);
+            })
+        })
+        $(document).ready(function(){
+            $("button.animate").click(function(){
+                $("div.animate").animate({
+                    left: '250px',
+                    width: '750px'
+                });
+            });
+        });
+        $(document).ready(function(){
+            $("div.a").click(function(){
+                $("div.a").stop();
+            })
+        })
     </script>
 </head>
 <body>
@@ -81,5 +117,10 @@
 <button class="a">Click me</button>
 <h2>This is a heading</h2>
 <h3>This is a smaller heading</h3>
+<div class="b">Click this div to slide a magenta panel up and down</div>
+<div class="a"></div>
+<button class="animate">Click me</button>
+<div class="animate">Make interesting things happen</div>
+
 </body>
 </html>
