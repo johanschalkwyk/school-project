@@ -5,6 +5,9 @@
         h1{
             text-align: center;
         }
+        h2{
+            padding-top: 100px;
+        }
         p.hide-p{
             color: black;
         }
@@ -39,9 +42,9 @@
             background:lightblue;
             color: black;
             font-size: 100%;
-            width: 500px;
+            width: 100px;
             position: relative;
-            height: 1000px;
+            height: 100px;
         }
     </style>
 
@@ -102,6 +105,36 @@
                 $("div.a").stop();
             })
         })
+
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                alert("Text: " + $("#test1").text());
+            });
+            $("#btn2").click(function(){
+                alert("HTML: " + $("#test1").html());
+            });
+        });
+        $(document).ready(function(){
+            $("#btn3").click(function(){
+                alert("Name: " + $("#test2").val());
+            });
+        });
+        $(document).ready(function(){
+            $("#test3").click(function(){
+                $("#test3").text("The text has been changed")
+            });
+        });
+        $(document).ready(function(){
+            $("#add").click(function() {
+                var input = $(input).val();
+                $("ul").append("<li>$(input).val()</li>");<!--not working-->
+            })
+        })
+        $(document).ready(function(){
+            $("#add2").click(function() {
+                $("#added").append($("#input2").val() + " ");
+            })
+        })
     </script>
 </head>
 <body>
@@ -122,5 +155,25 @@
 <button class="animate">Click me</button>
 <div class="animate">Make interesting things happen</div>
 
+
+<h2>Now lets see some JQuery Effects</h2>
+<p id="test1">This is some <b>bold</b> text in a paragraph.</p>
+<button id="btn1">Show Text</button>
+<button id="btn2">Show HTML</button>
+
+<p>Name: <input type="text" id="test2" value="Input name here"></p>
+<button id="btn3">Show Value</button>
+<p id="test3">Click this to change the text</p>
+<p style="padding-top: 20px">This is a list</p>
+<ul>
+    <li>Thing 1</li>
+    <li>Thing 2</li>
+    <li>Thing 3</li>
+</ul>
+<p>Add to list here: <input type="html" id="input" value="thing to be added"></p>
+<button id="add">click to add</button>
+<p id="added">Add text to this paragraph by inputing text and clicking the button below: </p>
+<p>Input: <input type="text" id="input2" value="input"></p>
+<button id="add2">click to add</button>
 </body>
 </html>
