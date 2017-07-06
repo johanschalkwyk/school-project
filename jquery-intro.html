@@ -46,6 +46,12 @@
             position: relative;
             height: 100px;
         }
+        .blue{
+            color: blue;
+        }
+        .green{
+            color:green;
+        }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -135,6 +141,41 @@
                 $("#added").append($("#input2").val() + " ");
             })
         })
+        $(document).ready(function(){
+            $("#remove").click(function(){
+                $("#div1").remove();
+            });
+        });
+        $(document).ready(function(){
+            $("#div1").click(function(){
+                $("#div1").empty();
+            });
+        });
+        $(document).ready(function() {
+            $("#blue").click(function(){
+                $("p").addClass("blue");
+            })
+        })
+        $(document).ready(function() {
+            $("#green").click(function(){
+                $("p").addClass("green");
+            })
+        })
+        $(document).ready(function() {
+            $("#-blue").click(function(){
+                $("p").removeClass("blue");
+            })
+        })
+        $(document).ready(function() {
+            $("#t-green").click(function(){
+                $("p").toggleClass("green");
+            })
+        })
+        $(document).ready(function(){
+            $("#yellow").click(function(){
+                $("p").css("background-color", "yellow");
+            });
+        });
     </script>
 </head>
 <body>
@@ -175,5 +216,18 @@
 <p id="added">Add text to this paragraph by inputing text and clicking the button below: </p>
 <p>Input: <input type="text" id="input2" value="input"></p>
 <button id="add2">click to add</button>
+<div id="div1" style="height:150px;width:300px;border:1px solid black;background-color:yellow;">
+    This is some text in the div.
+    <p>This is a paragraph in the div.</p>
+    <p>This is another paragraph in the div.</p>
+    Click the button below to remove the div
+    Click the div to empty it
+</div>
+<button id="remove">Remove div element</button>
+<button id="blue">Click to turn regular paragraphs blue</button>
+<button id="green">Click to turn regular paragraphs green</button>
+<button id="-blue">Click to take away the blue</button>
+<button id="t-green">Click to toggle the green</button>
+<button id="yellow">Click to turn background of paragraphs yellow</button>
 </body>
 </html>
